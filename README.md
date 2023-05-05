@@ -4,7 +4,7 @@
 
 This README file is for a Python script that fetches data from two different APIs, and saves the data to two different collections in a MongoDB database. The script uses threading to run both API calls in parallel, improving efficiency and reducing overall runtime.
 
-The script connects to a MongoDB instance using a connection string, and then fetches data from two different APIs using requests library. The fetched data is then saved to two different collections in the database. The APIs used in this script are "http://api.open-notify.org/iss-now.json" and "https://www.bitstamp.net/api/v2/ticker/btcusd/". The former API returns the current location of the International Space Station (ISS), while the latter API returns the current price of Bitcoin in USD.
+The script connects to a MongoDB instance using a connection string, and then fetches data from two different APIs using requests library. The fetched data is then saved to two different collections in the database. The APIs used in this script are [ISS satellite link](http://api.open-notify.org/iss-now.json) and [Bitstamp link](https://www.bitstamp.net/api/v2/ticker/btcusd/). The former API returns the current location of the International Space Station (ISS), while the latter API returns the current price of Bitcoin in USD.
 
 The script defines a function to fetch data from an API, and the function is run in parallel for both APIs using two separate threads. The thread for each API fetches data from the API, and then saves the data to a collection in the database. The script also defines a variable for the number of retries to make when establishing a connection to an API. If the connection fails, the script retries the connection a specified number of times before giving up.
 
