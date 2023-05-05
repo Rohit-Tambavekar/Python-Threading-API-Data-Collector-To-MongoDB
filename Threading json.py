@@ -1,13 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 pip install pymongo
-
-
-# In[1]:
 
 
 import pymongo
@@ -18,20 +9,16 @@ import requests
 import threading
 
 
-# In[2]:
-
-
 # Define the MongoDB connection string
-mongo_conn_str = "mongodb://guvidsm23:dataentry@ac-yaydskh-shard-00-00.dbdtjgb.mongodb.net:27017,ac-yaydskh-shard-00-01.dbdtjgb.mongodb.net:27017,ac-yaydskh-shard-00-02.dbdtjgb.mongodb.net:27017/?ssl=true&replicaSet=atlas-xjikdp-shard-0&authSource=admin&retryWrites=true&w=majority"
+#Enter the database name in <database_name> and password for the database in <password for database>
+#do not include the <> just database:password format
+mongo_conn_str = "mongodb://<database_name>:<password_for_database>@ac-yaydskh-shard-00-00.dbdtjgb.mongodb.net:27017,ac-yaydskh-shard-00-01.dbdtjgb.mongodb.net:27017,ac-yaydskh-shard-00-02.dbdtjgb.mongodb.net:27017/?ssl=true&replicaSet=atlas-xjikdp-shard-0&authSource=admin&retryWrites=true&w=majority"
 
 # Define the URL for the API request
 url1 = "http://api.open-notify.org/iss-now.json"
 
 # Define the second URL for the API request
 url2 = "https://www.bitstamp.net/api/v2/ticker/btcusd/"
-
-
-# In[3]:
 
 
 # Connect to MongoDB and create a connection object
@@ -81,16 +68,10 @@ def fetch_json_data(url,coll_name):
     print("Upload Successful")
 
 
-# In[4]:
-
-
 # Creating variables for database name. 
 # These can also be taken a input during runtime using input() method
 collection_name1 = "satellite"
 collection_name2 = "stock"
-
-
-# In[5]:
 
 
 # Create a new thread to fetch JSON data from url1 and save it to collection_name1
@@ -108,10 +89,3 @@ sat_Thread.join()
 sto_Thread.join()
 
 print("All threads finished")
-
-
-# In[ ]:
-
-
-
-
